@@ -1,0 +1,88 @@
+<% include partials/header %>
+
+    <div class="container ">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    <strong>Name:</strong>
+                    <p>
+                        <%= item.name%>
+                    </p>
+                </div>
+
+                <div class="pull-right">
+                    <strong>Id:</strong>
+                    <p>
+                        <%= item._id%>
+                    </p>
+                </div>
+
+                <div class="clearfix"></div>
+                <a href="/cms/product_update?name=<%=item.name%>" class="btn btn-warning btn-xs pull-right">Modify</a>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="panel-body">
+
+                <strong>Image Name:</strong>
+                <p>
+                    <%= item.imageName%>
+                </p>
+                <strong>Stock:</strong>
+                <p>
+                    <%= item.stock%>
+                </p>
+                <strong>Price:</strong>
+                <p>
+                    <%= item.price%>
+                </p>
+                <strong>Sale Price:</strong>
+                <p>
+                    <%= item.salePrice%>
+                </p>
+                <strong>Short Description:</strong>
+                <p>
+                    <%= item.shortDescription%>
+                </p>
+                <strong>Full Description:</strong>
+                <p>
+                    <%= item.fullDescription%>
+                </p>
+                <strong>Category:</strong>
+                <p>
+                    <%= item.category%>
+                </p>
+                <strong>Sub Category:</strong>
+                <p>
+                    <%= item.subcategory%>
+                </p>
+
+                <strong>Features:</strong>
+                <p>
+                    <%= item.features%>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <strong>Reviews:</strong>
+        <table class="table">
+            <% item.review.forEach(function(comment){ %>
+
+                <tr>
+                    <td>
+                        <%= comment.custname%>
+                    </td>
+                    <td>
+                        <%= comment.custemail%>
+                    </td>
+                    <td>
+                        <%= comment.custreview%>
+                    </td>
+
+                </tr>
+
+                <% }) %>
+        </table>
+    </div>
+    <% include partials/footer %>

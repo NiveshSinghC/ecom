@@ -1,0 +1,49 @@
+<% include partials/header %>
+
+    <div class="container">
+        <h1>Products</h1>
+        <p class="text-right">
+            <strong>Total Products: </strong>
+            <%= product.length %>
+        </p>
+        <hr>
+        <%- messages('message', locals) %>
+            <table class="table">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Sale Price</th>
+                    <th>Stock</th>
+                    <th></th>
+                </tr>
+                <% product.forEach(function (product) { %>
+
+                    <tr>
+                        <td>
+                            <img src="/assets/<%= product.imageName %>" style="width:50px;height:50px">
+                        </td>
+                        <td>
+                            <%=product.name%>
+                        </td>
+                        <td>
+                            <%=product.price%>
+                        </td>
+                        <td>
+                            <%=product.salePrice%>
+                        </td>
+                        <td>
+                            <%=product.stock%>
+                        </td>
+                        <td>
+                            <a href="/cms/product_update?name=<%=product.name%>" class="btn btn-primary btn-xs">Modify</a>
+                            <a href="/cms/product_delete/<%=product._id%>" id="delete" class="btn btn-danger btn-xs">delete</a>
+                            <a href="/cms/item_view?id=<%=product._id%>" class="btn btn-warning btn-xs">View</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </table>
+
+    </div>
+    <script src="/confirm.js"></script>
+    <% include partials/footer %>

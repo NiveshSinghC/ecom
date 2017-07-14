@@ -1,0 +1,12 @@
+<% include partials/header %>
+    <div class="container">
+        <h1>Add Category</h1>
+        <hr>
+        <%- messages('message', locals) %>
+            <form class="form-gorup" action="/cms/category_add" method="post">
+                <label>Category Name</label>
+                <input class="form-control" type="text" name="ctg"><br>
+                <input class="form-control btn btn-primary" type="submit" name="ctg-sub" value="Add">
+            </form>
+    </div>
+    <% include partials/footer %>

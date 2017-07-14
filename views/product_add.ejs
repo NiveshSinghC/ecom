@@ -1,0 +1,72 @@
+<% include partials/header %>
+    <div class="container">
+        <h1>Add Product</h1>
+        <%- messages('message', locals) %>
+            <% if(errors) { %>
+                <% errors.forEach(function(error){ %>
+                    <div class="alert alert-danger">
+                        <%= error.msg %>
+                    </div>
+                    <% }) %>
+                        <% } %>
+                            <form class="form-group" action="/cms/product_add" method="post" enctype="multipart/form-data">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control  " name="prname"><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Upload Image</label>
+                                    <input type="file" name="primage" class="form-control"><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Sale Price</label>
+                                    <input type="text" class="form-control " name="prslprice"><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Price</label>
+                                    <input type="text" class="form-control " name="prprice"><br>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Category</label>
+                                    <!--<input type="text" name="prctg">-->
+                                    <select name="prctg" id="select-cat" class="form-control ">
+                                        <% cat.forEach(function(cat){ %>
+                                        <option value="<%= cat.name %>"><%= cat.name %></option>
+                                        <% }) %>
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Sub Category</label>
+                                    <!--<input type="text" class="form-control " name="prsubctg">-->
+                                    <select name="prsubctg" id="select-subcat" class="form-control ">
+                                            
+                                    </select>
+                                    <br>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Short Description</label>
+                                    <textarea name="prsdesc" rows="4" class="form-control" cols="80"></textarea><br>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Full Description</label>
+                                    <textarea name="prfdesc" rows="8" class="form-control" cols="80"></textarea><br>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <label>Stock</label>
+                                    <input type="text" name="prstock" class="form-control"><br>
+                                </div>
+                                <div class="col-md-8">
+                                    <label>Features <small>(seperate features by ',')</small></label>
+                                    <input type="text" name="prft" class="form-control"><br>
+                                </div>
+
+                                <div class="co-md-12">
+                                    <input type="submit" value="Add" class="btn btn-primary btn-block">
+                                </div>
+                            </form>
+
+    </div>
+    <script src="/selectOption.js"></script>
+    <% include partials/footer %>

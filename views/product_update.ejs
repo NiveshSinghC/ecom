@@ -1,0 +1,66 @@
+<% include partials/header %>
+    <div class="container">
+        <h1>Update product</h1>
+        <hr>
+
+        <form class="form-group" action="/cms/product_update/<%= id %>" method="post" enctype="multipart/form-data">
+            <div class="col-md-6">
+                <label>Name</label>
+                <input type="text" class="form-control  " name="prname" value="<%= name %>"><br>
+            </div>
+            <div class="col-md-6">
+                <label>Upload Image</label>
+                <input type="file" name="primage" class="form-control"><br>
+            </div>
+            <div class="col-md-6">
+                <label>Sale Price</label>
+                <input type="text" class="form-control " name="prslprice" value="<%= slPrice %>"><br>
+            </div>
+            <div class="col-md-6">
+                <label>Price</label>
+                <input type="text" class="form-control " name="prprice" value="<%= price %>"><br>
+            </div>
+            <div class="col-md-6">
+                <label>Category</label>
+                <!--<input type="text" class="form-control " id="select-cat" name="prctg" value="<%= ctg %>">-->
+                <select name="prctg" id="select-cat" class="form-control ">
+                <% cat.forEach(function(cat){ %>
+                    <option value="<%= cat.name %>" <% if(cat.name == ctg){%> <%= 'selected' %> <% } %> ><%= cat.name %></option>
+                <% }) %>
+                </select>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <label>Sub Category</label>
+                <!--<input type="text" class="form-control " name="prsubctg" value="<%= subctg %>"><br>-->
+                <select name="prsubctg" id="select-subcat" class="form-control ">
+                                        
+                </select>
+            </div>
+            <div class="col-md-12">
+                <label>Short Description</label>
+                <textarea name="prsdesc" rows="4" class="form-control" cols="80"> <%= srdesc %></textarea><br>
+            </div>
+            <div class="col-md-12">
+                <label>Full Description</label>
+                <textarea name="prfdesc" rows="8" class="form-control" cols="80"><%= fldesc %></textarea><br>
+            </div>
+            <div class="col-md-4">
+
+                <label>Stock</label>
+                <input type="text" name="prstock" class="form-control" value="<%= stock %>"><br>
+            </div>
+            <div class="col-md-8">
+                <label>Features <small>(seperate features by ',')</small></label>
+                <input type="text" name="prft" class="form-control" value="<%= features %>"><br>
+            </div>
+
+            <div class="col-md-12">
+                <input type="submit" value="Add" class="btn btn-primary btn-block">
+            </div>
+        </form>
+
+    </div>
+    </div>
+    <script src="/selectOption.js"></script>
+    <% include partials/footer %>

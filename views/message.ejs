@@ -1,0 +1,17 @@
+<div class="messages">
+    <% Object.keys(messages).forEach(function(type){ %>
+        <% messages[type].forEach(function (message) { %>
+            <div class="alert alert-<%= type %>">
+                <%= message %>
+            </div>
+            <script>
+                window.setTimeout(function() {
+                    $('.alert').slideUp(2000, function() {
+                        $(this).remove();
+                    });
+                });
+            </script>
+
+            <% }) %>
+                <% }) %>
+</div>
