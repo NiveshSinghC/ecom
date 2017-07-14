@@ -25,7 +25,7 @@ const Customer = require('../models/customer');
 
 const storage = multer.diskStorage({
         destination: function(req, file, cb) {
-            cb(null, 'src/src/assets/');
+            cb(null, 'public/assets/');
         },
         filename: function(req, file, cb) {
             cb(null, Date.now() + '.jpg');
