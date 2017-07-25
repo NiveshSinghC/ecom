@@ -7,12 +7,8 @@ const config = require('./config/database');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
 const session = require('express-session');
-const ip = require('ip');
-const publicIp = require('public-ip');
-const MachineUUID = require('machine-uuid');
-const nodeID = require('node-machine-id');
-const platform = require('platform');
-
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 
 // Connect To Database
 mongoose.connect(config.database);
@@ -35,11 +31,19 @@ const users = require('./routes/users');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cookieParser());
+
 // Port Number
 const port = 3000;
 
 // CORS Middleware
 app.use(cors());
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
 
 //express session middleware
 app.use(session({
@@ -90,12 +94,5 @@ app.get('/', (req, res) => {
 
 // Start Server
 app.listen(port, () => {
-
-    console.log('1', nodeID.machineIdSync({ original: true }));
-    MachineUUID((uuid) => {
-        console.log('3', uuid);
-    });
     console.log('Server started on port ' + port);
-    //a17a5b73-5c6d-4c4b-90e8-d26bb197e710
-    console.log('plaform: ', platform.os);
 });

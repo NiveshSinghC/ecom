@@ -38,7 +38,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label>Sub Category</label>
-                                    <!--<input type="text" class="form-control " name="prsubctg">-->
                                     <select name="prsubctg" id="select-subcat" class="form-control ">
                                             
                                     </select>
@@ -61,7 +60,8 @@
                                     <label>Features <small>(seperate features by ',')</small></label>
                                     <input type="text" name="prft" class="form-control"><br>
                                 </div>
-
+                                <input type="hidden" name="shname" value="<%= cookie.ShopName %>">
+                                <input type="hidden" name="shadd" value="<%= cookie.ShopAddress %>">
                                 <div class="co-md-12">
                                     <input type="submit" value="Add" class="btn btn-primary btn-block">
                                 </div>

@@ -1,17 +1,18 @@
 <% include partials/header %>
 
     <div class="container">
+    <%- messages('message', locals) %>
         <div class="well well-md">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h1 class="panel-title">Content Management System</h1>
                 </div>
                 <div class="panel-body">
-                    <form class="form-group">
+                    <form class="form-group" action="/cms" method="POST">
                         <label>Email</label>
-                        <input class="form-control" type="text" name="us-email"><br>
+                        <input class="form-control" type="text" name="shoplog_email"><br>
                         <label>Password</label>
-                        <input class="form-control" type="password" name="us-pswd"><br>
+                        <input class="form-control" type="password" name="shoplog_pswd"><br>
                         <input class="form-control btn btn-primary" type="submit" name="us-sbmt" value="Sumbit">
 
                     </form>

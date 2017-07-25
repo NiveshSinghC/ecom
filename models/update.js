@@ -7,6 +7,10 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    imageName: {
+        type: String,
+        required: true
+    },
     shortDescription: {
         type: String,
         required: true
@@ -27,6 +31,14 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    shopname:{
+        type: String,
+        required: true
+    },
+    shopadd: {
+        type: String,
+        required: true
+    },
     price: {
         type: String,
         required: true
@@ -38,8 +50,11 @@ const UserSchema = mongoose.Schema({
     stock: {
         type: String,
         required: true
+    },
+    review: {
+        type: Array,
+        // required: true
     }
-
 
 });
 

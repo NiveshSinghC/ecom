@@ -1,0 +1,50 @@
+<% include partials/header %>
+
+    <div class="container">
+    <%- messages('message', locals) %>
+    <% if(errors) { %>
+        <% errors.forEach(function(error){ %>
+            <div class="alert alert-danger">
+                <%= error.msg %>
+            </div>
+        <% }) %>
+    <% } %>
+        <div class="well well-md">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Content Management System</h1>
+                </div>
+                <div class="panel-body">
+                    <form class="form-group" action-"/cms/shopacc" method="POST">
+                        <label>Name Of Shop Owner</label>
+                        <input class="form-control" type="text" name="owner_name"><br>
+
+                        <label>Username</label>
+                        <input class="form-control" type="text" name="owner_acc_username"><br>
+
+                        <label>Email ID</label>
+                        <input class="form-control" type="text" name="owner_email"><br>
+
+                        <label>Password</label>
+                        <input class="form-control" type="password" name="owner_acc_pwd"><br>
+
+                        <label>Rewrite Password</label>
+                        <input class="form-control" type="password" name="owner_rw_pwd"><br>
+
+                        <label>Name of Shop</label>
+                        <input class="form-control" type="text" name="owner_shop_name"><br>
+
+                        <label>Shop Address</label>
+                        <input class="form-control" type="text" name="owner_shop_add"><br>
+
+                        <label>Contact Number of ShopOwner</label>
+                        <input class="form-control" type="text" name="owner_contactno"><br>
+
+                        <input class="form-control btn btn-primary" type="submit" name="woacc_sbmt" value="Sumbit">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% include partials/footer %>

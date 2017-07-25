@@ -31,6 +31,14 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    shopname:{
+        type: String,
+        required: true
+    },
+    shopadd: {
+        type: String,
+        required: true
+    },
     price: {
         type: String,
         required: true
@@ -64,7 +72,7 @@ module.exports.item = function(name, callback) {
 
 module.exports.view = function(id, callback) {
 
-    items.findOne({ '_id': '' + id + '' }, callback);
+    items.findOne({ '_id':'' + id + '' }, callback);
 }
 
 module.exports.addProduct = function(newProduct, callback) {
